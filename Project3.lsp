@@ -1,3 +1,9 @@
+;Part 1. (Sarah)
+(defun set-member (set item)
+  (cond
+    ((null set) nil) ;; If set is empty, return nil
+    ((equal (car set) item) t) ;; If the first element in set is equal to item, return t
+    (t (set-member (cdr set) item)))) ;; Otherwise, recursively call set-member on the rest of the set
 
 ;Part 3. Return the intersection of set-1 and set-2 (Jada)
 (defun set-intersection (set-1 set-2) ;define function named set-intersection that takes two arguments set-1 and set-2
