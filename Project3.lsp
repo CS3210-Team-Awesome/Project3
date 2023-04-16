@@ -21,3 +21,12 @@
     (if (not(EQUAL a b)) t);;checks if parameters are not equal and if true returns true
     )
 (boolean-xor a b);;calls the function
+
+;;Part 6
+(defun implication(a b);; initialize function
+    (cond ((EQUAL a b) t) ;; test if inputs are equal and if so returns true
+          ((EQUAL a nil) t) ;; tests if a is nil, if so it is always true
+          ((and (EQUAL a t) (EQUAL b nil)) nil) ;; tests for the one false condition, a = t and b = nil, returns false 
+        )
+    )
+(implication a b);; calls function
