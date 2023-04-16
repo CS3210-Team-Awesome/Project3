@@ -16,9 +16,8 @@
 
 
 ;; Part 5 - Jessia (code still in progress)
-(defun boolean-xor(a b)
-    (cond ((EQ a b) nil)
-        ((EQ a nil) b)
-        ((EQ b nil) a)
-     )
+(defun boolean-xor(a b) ;; function definition
+    (if (EQUAL a b) nil) ;; checks if parameters are equal and if true returns false
+    (if (not(EQUAL a b)) t);;checks if parameters are not equal and if true returns true
     )
+(boolean-xor a b);;calls the function
