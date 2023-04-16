@@ -15,7 +15,7 @@
     result) ;returns the result set
 
 
-;; Part 5 - Jessia (code still in progress)
+;; Part 5 - Jessia
 (defun boolean-xor(a b) ;; function definition
     (if (EQUAL a b) nil) ;; checks if parameters are equal and if true returns false
     (if (not(EQUAL a b)) t);;checks if parameters are not equal and if true returns true
