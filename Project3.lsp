@@ -31,12 +31,18 @@
     result) ;returns the result set
 
 
-;; Part 5 - Jessia (code still in progress)
-(defun boolean-xor (a b)
-    (COND
-          (NOT (EQ (a b))
-               (NOT(NULL? a) a)
-               (NOT(NULL? b) b)
-           (ELSE nil))
+;; Part 5 - Jessia
+(defun boolean-xor(a b) ;; function definition
+    (if (EQUAL a b) nil) ;; checks if parameters are equal and if true returns false
+    (if (not(EQUAL a b)) t);;checks if parameters are not equal and if true returns true
     )
-)
+(boolean-xor a b);;calls the function
+
+;;Part 6
+(defun implication(a b);; initialize function
+    (cond ((EQUAL a b) t) ;; test if inputs are equal and if so returns true
+          ((EQUAL a nil) t) ;; tests if a is nil, if so it is always true
+          ((and (EQUAL a t) (EQUAL b nil)) nil) ;; tests for the one false condition, a = t and b = nil, returns false 
+        )
+    )
+(implication a b);; calls function
