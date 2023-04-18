@@ -1,6 +1,14 @@
+;; Function 3 tests set-intersection
 
+(print "Test set for set-intersection function")
+(if (Equal (set-intersection '(1 2) '(2 4)) '(2))
+  (print "set-intersection passed with sets (1,2) and (2, 4)"))
 
+(if (Equal (set-intersection '(1 2 3) '(2 3 4)) '(2 3))
+  (print "set-intersection passed with sets (1 2 3) and (2 3 4)"))
 
+(if (Equal (set-intersection '(1 2 3 9 10) '(2 3 4 7 9 11)) '(2 3 9))
+  (print "set-intersection passed with sets (1 2 3 9 10) and (2 3 4 7 9 11)"))
 
 
 ;; Function 5 test: boolean-xor
