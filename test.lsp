@@ -59,7 +59,7 @@
     (print "Test 3 pass with 1 1"))
 
 (if (Equal (implication t t) nil)
-    (print "Test 3 fail with 0/0"))
+    (print "Test 3 fail with 1 1"))
 
 ;; test for parameters 1 0
 (if (Equal (implication t nil) nil)
