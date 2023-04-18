@@ -22,13 +22,13 @@
 (set-union '(1 2 3) '(2 3 4)) => (1 2 3 4)) ; calling function
 
 ;Part 3. Return the intersection of set-1 and set-2 (Jada)
-(defun set-intersection (set1 set2)
-  (if (null set1)
+(defun set-intersection (set-1 set-2)
+  (if (null set-1)
       '()
-      (let ((item (car set1))) 
-        (if (set-member set2 item) 
-            (cons item (set-intersection (cdr set1) set2))
-            (set-intersection (cdr set1) set2)))))
+      (let ((item (car set-1))) 
+        (if (set-member set-2 item) 
+            (cons item (set-intersection (cdr set-1) set-2))
+            (set-intersection (cdr set-1) set-2)))))
 
 
 ;; Part 5 - Jessia
