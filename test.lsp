@@ -1,14 +1,17 @@
 ;; Function 3 tests set-intersection
-
 (print "Test set for set-intersection function")
 (if (Equal (set-intersection '(1 2) '(2 4)) '(2))
-  (print "set-intersection passed with sets (1,2) and (2, 4)"))
+  (print "Test 1 PASS with sets (1,2) and (2, 4)")
+  
+  (print "Test 1 FAIL with sets (1,2) and (2, 4)"))
 
 (if (Equal (set-intersection '(1 2 3) '(2 3 4)) '(2 3))
-  (print "set-intersection passed with sets (1 2 3) and (2 3 4)"))
-
+  (print "Test 2 PASS with sets (1 2 3) and (2 3 4)")
+  (print "Test 2 FAIL with sets (1 2 3 and (2 3 4)"))
+  
 (if (Equal (set-intersection '(1 2 3 9 10) '(2 3 4 7 9 11)) '(2 3 9))
-  (print "set-intersection passed with sets (1 2 3 9 10) and (2 3 4 7 9 11)"))
+  (print "Test 3 PASS with sets (1 2 3 9 10) and (2 3 4 7 9 11)")
+  (print "Test 3 FAIL with sets (1 2 3 9 10)"))
 
 
 ;; Function 5 test: boolean-xor
@@ -75,3 +78,23 @@
 
 (if (Equal (implication t nil) t)
     (print "Test 4 fail with 0 1"))
+
+
+;Tests for bi-implication function
+(print "Test for boolean-iff function")
+
+(if (Equal (boolean-iff nil t) nil)
+    (print "Test 1 PASS with 0 1")
+    (print "Test 1 FAIL with 0 1"))
+
+(if (Equal (boolean-iff nil nil) t)
+    (print "Test 2 PASS with 0 0")
+    (print "Test 2 FAIL with 0 0"))
+
+(if (Equal (boolean-iff t t) t)
+    (print "Test 3 PASS with 1 1")
+    (print "Test 3 FAIL with 1 1"))
+
+(if (Equal (boolean-iff t nil) nil)
+    (print "Test 4 PASS with 1 0")
+    (print "Test 4 FAIL with 1 0"))
