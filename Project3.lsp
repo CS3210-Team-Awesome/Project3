@@ -22,13 +22,13 @@
 (set-union '(1 2 3) '(2 3 4)) => (1 2 3 4)) ; calling function
 
 ;Part 3. Return the intersection of set-1 and set-2 (Jada)
-(defun set-intersection (set-1 set-2)
-  (if (null set-1)
+(defun set-intersection (set-1 set-2) ;define function to take set-1 and set-2 as arguments
+  (if (null set-1) ;if set-1 is empty, return empty set ()
       '()
-      (let ((item (car set-1))) 
-        (if (set-member set-2 item) 
-            (cons item (set-intersection (cdr set-1) set-2))
-            (set-intersection (cdr set-1) set-2)))))
+      (let ((item (car set-1))) ;bind the first item in set-1 as item to compare with set-2
+        (if (set-member set-2 item) ;check if item is in set-2 using set-member function above
+            (cons item (set-intersection (cdr set-1) set-2)) ;if it is, add to result list
+            (set-intersection (cdr set-1) set-2))))) ;repeat for all items in set-1 (calls set-intersection recursively
 
 
 ; Part 4. Return the difference of set-1 and set-2 (Adriana)
@@ -59,3 +59,11 @@
         )
     )
 (implication a b);; calls function
+
+;Function 7 boolean-iff (bi-implication)
+(defun boolean-iff (a b) ;define function with a and b as arguments
+  (cond ((and (Equal a t)(Equal b t))t) ;if a is true AND b is true, return true
+        ((and (Equal a nil)(Equal b nil))t) ;if a is false AND b is false, return true
+        ((and (Equal a nil)(Equal b t))nil) ;if a is false AND b is true, return false
+        ((and (Equal a t)(Equal b nil))nil) ;if a is true AND b is false, return false
+        (t nil))) ;else return false
