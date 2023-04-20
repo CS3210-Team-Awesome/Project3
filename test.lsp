@@ -13,6 +13,20 @@
   (print "Test 3 PASS with sets (1 2 3 9 10) and (2 3 4 7 9 11)")
   (print "Test 3 FAIL with sets (1 2 3 9 10)"))
 
+;; Function 4 test: Set-1 and set-2 diff
+(print "Test set for set difference function")
+
+(if (Equal (set-diff '(1 2) '(2 4)) '(1))
+  (print "Test 1 PASS with sets (1,2) and (2, 4)")
+  (print "Test 1 FAIL with sets (1,2) and (2, 4)"))
+
+(if (Equal (set-diff '(1 2 3 4 5) '(3 4 5 9 10)) '(1 2))
+  (print "Test 1 PASS with sets (1 2 3 4 5) and (3 4 5 9 10)")
+  (print "Test 1 FAIL with sets (1 2 3 4 5) and (3 4 5 9 10)"))
+
+(if (Equal (set-diff '(3 4 5 9 10) '(1 2 3 4 5)) '(9 10))
+  (print "Test 1 PASS with sets (3 4 5 9 10) and (1 2 3 4 5)")
+  (print "Test 1 FAIL with sets (3 4 5 9 10) and (1 2 3 4 5)"))
 
 ;; Function 5 test: boolean-xor
 
