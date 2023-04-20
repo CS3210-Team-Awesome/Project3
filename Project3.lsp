@@ -34,15 +34,15 @@
 ; Part 4. Return the difference of set-1 and set-2 (Adriana)
 ; Reference for code: https://stackoverflow.com/questions/19530511/lisp-difference-of-list2-to-list1
 (defun set-diff (set-1 set-2)
-  (cond ((null set-2) set-1)
-    ((not (set-member (car set-2) set-1)) ; call set-member fucntion to see if first item is a member of the set
-      (cons (set-diff set-1 (cdr set-2)) ; Recursively calls set-diff, finds everything but first item in set-2
-        (first set-2))) ; Checks first item of set-2
-    (t (set-diff set-1 (cdr set-2))) ; Recursively calls itself finds everything but first item in set-2
+  (cond ((null set-1) nil)
+    ((not (set-member set-2 (car set-1)))
+     (cons (car set-1)
+        (set-diff (cdr set-1) set-2)))
+    (t (set-diff (cdr set-1) set-2))
   )
 )
 
-(set-diff '(1 2) '(2 4)) ; => (1)
+(set-diff '(1 2) '(2 4)) ; => (1) Calls function
 
 ;; Part 5 - Jessia
 (defun boolean-xor(a b) ;; function definition
