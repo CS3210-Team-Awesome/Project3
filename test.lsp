@@ -1,3 +1,10 @@
+;;Function 1 test set-member
+;; Test for set-member function
+(assert (equal (set-member '(1 2 3) 2) t)) ;; The item 2 is a member of the set (1 2 3), so the function should return t
+(assert (equal (set-member '(1 2 3) 4) nil)) ;; The item 4 is not a member of the set (1 2 3), so the function should return nil
+(assert (equal (set-member '() 1) nil)) ;; The set is empty, so the function should return nil
+(assert (equal (set-member '(1 "hello" nil) nil) t)) ;; The item nil is a member of the set (1 "hello" nil), so the function should return t
+
 ;; Function 3 tests set-intersection
 (print "Test set for set-intersection function")
 (if (Equal (set-intersection '(1 2) '(2 4)) '(2))
@@ -112,3 +119,11 @@
 (if (Equal (boolean-iff t nil) nil)
     (print "Test 4 PASS with 1 0")
     (print "Test 4 FAIL with 1 0"))
+
+;Function 8 - boolean expressions NOT, AND, OR, XOR, IMPLIES, IFF ***NOT FINISHED
+(if (Equal (boolean-eval '(and t nil))))) ; Expected result is nil
+(boolean-eval '(or t nil)) ; Expected result is t
+(boolean-eval '(xor t t)) ; Expected result is nil
+(boolean-eval '(implies t nil)) ; Expected result is nil
+(boolean-eval '(iff t t)) ; Expected result is t
+(boolean-eval '(not (and t nil))) ; Expected result is t
