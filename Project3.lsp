@@ -9,12 +9,13 @@
 ; Definition: Set-Union function takes two lists and returns a new list containing all the elements present in either of the lists. 
 ; If there are duplications, then only one copy of the member is retained in the returned list.
 
-(defun set-union (set-1 set-2) ; defining a function called set-union
-  (cond ((null set-1) set-2) ; condition to check if set-1 is empty, if so, then it returns set-2
-      (set-member (car set-1) set-2) ; checks whether the first element of set-1 is also an element of set-2
-      (set-union (cdr set-1) set-2)) ; calls function recursively if the first element of set-1 is also an element of set-2
-      (t (cons (car set-1) (set-union (cdr set-1) set-2)))) ; condition t is used if the first element of set-1 is not in set-2, then we create a new list which contains the first element of set-1 and the union of the rest of the elements in set-1 and set-2
-
+(defun set-union (set-1 set-2); defining a function called set-union
+(cond ; condition to check if set-1 is empty, if so, then it returns set-2
+((null set-1) set-2)
+      ; checks whether the first element of set-1 is also an element of set-2
+      ; calls function recursively if the first element of set-1 is also an element of set-2
+      ((set-member set-2 (car set-1)) (set-union (cdr set-1) set-2))
+      (t (cons (car set-1) (set-union (cdr set-1) set-2))))); condition t is used if the first element of set-1 is not in set-2, then we create a new list which contains the first element of set-1 and the union of the rest of the elements in set-1 and set-2
 
 ;Part 3. Return the intersection of set-1 and set-2 (Jada)
 (defun set-intersection (set-1 set-2) ;define function to take set-1 and set-2 as arguments
