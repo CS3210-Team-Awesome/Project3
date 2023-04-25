@@ -1,4 +1,5 @@
 ;;Function 1 test set-member
+(print "Test for set-member function")
 (if (Equal (set-member '(1 2 3) 2) t)
   (print "Test 1 PASS with (1 2 3) 2")
   (print "Test 1 FAIL with (1 2 3) 2"))
@@ -131,6 +132,7 @@
     (print "Test 4 FAIL with 1 0"))
 
 ;Function 8 - boolean expressions NOT, AND, OR, XOR, IMPLIES, IFF
+(print "Test for boolean-eval")
 (if (Equal (boolean-eval '(and t nil)) nil)
   (print "Test 1 PASS with t nil")
   (print "Test 1 FAIL with t nil"))
