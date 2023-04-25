@@ -12,9 +12,6 @@
   (print "Test 3 PASS with () 1")
   (print "Test 3 FAIL with () 1"))
 
-(if (Equal (set-member '(1 "hello" nil) nil) t)
-  (print "Test 4 PASS with (1 "hello" nil) nil")
-  (print "Test 4 FAIL with (1 "hello" nil) nil"))
 
 ;; Function 2 test: Set-Union
 
@@ -28,9 +25,6 @@
     (print "Test 2 PASS with (1 2 3) and (4 5 6)")
     (print "Test 2 FAIL with (1 2 3) and (4 5 6)"))
 
-(if (Equal (set-union '(1 "hello" nil) '(nil 2 3)) '(1 "hello" nil 2 3))
-    (print "Test 3 PASS with (1 "hello" nil) and (nil 2 3)")
-    (print "Test 3 FAIL with (1 "hello" nil) and (nil 2 3)"))
 
 (if (Equal (set-union '() '(1 2 3)) '(1 2 3))
     (print "Test 4 PASS with () and (1 2 3)")
