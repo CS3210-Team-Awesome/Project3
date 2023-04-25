@@ -130,7 +130,7 @@
     (print "Test 4 PASS with 1 0")
     (print "Test 4 FAIL with 1 0"))
 
-;Function 8 - boolean expressions NOT, AND, OR, XOR, IMPLIES, IFF ***NOT FINISHED
+;Function 8 - boolean expressions NOT, AND, OR, XOR, IMPLIES, IFF
 (if (Equal (boolean-eval '(and t nil)) nil)
   (print "Test 1 PASS with t nil")
   (print "Test 1 FAIL with t nil"))
