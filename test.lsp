@@ -16,6 +16,27 @@
   (print "Test 4 PASS with (1 "hello" nil) nil")
   (print "Test 4 FAIL with (1 "hello" nil) nil"))
 
+;; Function 2 test: Set-Union
+
+(print "Test for set-union function")
+
+(if (Equal (set-union '(1 2 3) '(3 4 5)) '(1 2 3 4 5))
+    (print "Test 1 PASS with (1 2 3) and (3 4 5)")
+    (print "Test 1 FAIL with (1 2 3) and (3 4 5)"))
+
+(if (Equal (set-union '(1 2 3) '(4 5 6)) '(1 2 3 4 5 6))
+    (print "Test 2 PASS with (1 2 3) and (4 5 6)")
+    (print "Test 2 FAIL with (1 2 3) and (4 5 6)"))
+
+(if (Equal (set-union '(1 "hello" nil) '(nil 2 3)) '(1 "hello" nil 2 3))
+    (print "Test 3 PASS with (1 "hello" nil) and (nil 2 3)")
+    (print "Test 3 FAIL with (1 "hello" nil) and (nil 2 3)"))
+
+(if (Equal (set-union '() '(1 2 3)) '(1 2 3))
+    (print "Test 4 PASS with () and (1 2 3)")
+    (print "Test 4 FAIL with () and (1 2 3)"))
+
+
 ;; Function 3 tests set-intersection
 (print "Test set for set-intersection function")
 (if (Equal (set-intersection '(1 2) '(2 4)) '(2))
