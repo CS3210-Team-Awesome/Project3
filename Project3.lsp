@@ -62,36 +62,27 @@
         ((and (Equal a t)(Equal b nil))nil) ;if a is true AND b is false, return false
         (t nil))) ;else return false
 
-;Function 8 - eval boolean expression NOT, AND, OR, XOR, IMPLIES, and IFF
+;;Function 8- boolean eval
 (defun boolean-eval (exp)
-  ;; Check if the expression is null (i.e., an empty list).
-  ;; Null is considered true in boolean logic.
   (cond ((null exp) t)
-        ;; Check if the expression is an atom (i.e., a boolean constant).
-        ;; If so, return it as is.
-        ((atom exp) exp)
-        ;; Check if the expression is a negation expression (i.e., starts with the 'not' operator).
-        ;; Recursively evaluate the expression inside the negation and return the negation of the result.
-        ((eq 'not (first exp)) (not (boolean-eval (second exp))))
-        ;; Check if the expression is an 'and' expression.
-        ;; Recursively evaluate the first and second operands and return their logical conjunction.
-        ((eq 'and (first exp)) (and (boolean-eval (second exp))
-                                    (boolean-eval (third exp))))
-        ;; Check if the expression is an 'or' expression.
-        ;; Recursively evaluate the first and second operands and return their logical disjunction.
-        ((eq 'or (first exp)) (or (boolean-eval (second exp))
-                                  (boolean-eval (third exp))))
-        ;; Check if the expression is an 'xor' expression.
-        ;; Recursively evaluate the first and second operands and return their exclusive disjunction.
-        ((eq 'xor (first exp)) (xor (boolean-eval (second exp))
-                                    (boolean-eval (third exp))))
-        ;; Check if the expression is an 'implies' expression.
-        ;; Recursively evaluate the second and third operands and return the result of their logical implication.
-        ((eq 'implies (first exp)) (boolean-eval (or (list (not (second exp))
-                                                           (third exp)))))
-        ;; Check if the expression is an 'iff' expression.
-        ;; Recursively evaluate the second and third operands and return their logical equivalence.
-        ((eq 'iff (first exp)) (equal (boolean-eval (second exp))
-                                      (boolean-eval (third exp))))
-        ;; If the expression does not match any of the above patterns, raise an error.
-        (t (error "Invalid expression"))))
+        ((not (listp exp)) exp)
+        ((equal (car exp) 'not)
+         (not (boolean-eval (cadr exp))))
+        ((equal (car exp) 'and)
+         (when (member nil (mapcar #'boolean-eval (cdr exp)))
+           nil))
+        ((equal (car exp) 'or)
+         (when (not (null (member t (mapcar #'boolean-eval (cdr exp)))))
+           t))
+        ((equal (car exp) 'xor)
+         (let ((a (boolean-eval (cadr exp)))
+               (b (boolean-eval (caddr exp))))
+           (boolean-xor a b)))
+        ((equal (car exp) 'implies)
+         (let ((a (boolean-eval (cadr exp)))
+               (b (boolean-eval (caddr exp))))
+           (implication a b)))
+        ((equal (car exp) 'iff)
+         (let ((a (boolean-eval (cadr exp)))
+               (b (boolean-eval (caddr exp))))
+           (and (implication a b) (implication b a))))))
