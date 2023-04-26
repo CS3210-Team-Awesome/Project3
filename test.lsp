@@ -148,26 +148,21 @@
 
 ;Function 8 - boolean expressions NOT, AND, OR, XOR, IMPLIES, IFF
 (print "Test for boolean-eval")
-(if (Equal (boolean-eval '(and t nil)) nil)
-  (print "Test 1 PASS with t nil")
-  (print "Test 1 FAIL with t nil"))
-
-(if (Equal (boolean-eval '(or t nil)) t)
-  (print "Test 2 PASS with t nil")
-  (print "Test 2 FAIL with t nil"))
-
-(if (Equal (boolean-eval '(xor t t)) nil)
-  (print "Test 3 PASS with t t")
-  (print "Test 3 FAIL with t t"))
-
-(if (Equal (boolean-eval '(implies t nil)) nil)
-  (print "Test 4 PASS with t nil")
-  (print "Test 4 FAIL with t nil"))
-
-(if (Equal (boolean-eval '(iff t t)) t)
-  (print "Test 5 PASS with t t")
-  (print "Test 5 FAIL with t t"))
-
-(if (Equal (boolean-eval '(not (and t nil))) t)
-  (print "Test 6 PASS with not (t nil)")
-  (print "Test 6 FAIL with not (t nil)"))
+;; Test case 1: Test null expression
+(print (if (boolean-eval '()) 'PASS 'FAIL)) ; Expected output: PASS
+;; Test case 2: Test boolean constant
+(print (if (boolean-eval t) 'PASS 'FAIL)) ; Expected output: PASS
+;; Test case 3: Test negation expression
+(print (if (boolean-eval '(not t)) 'FAIL 'PASS)) ; Expected output: PASS
+;; Test case 4: Test 'and' expression
+(print (if (boolean-eval '(and t nil)) 'FAIL 'PASS)) ; Expected output: PASS
+;; Test case 5: Test 'or' expression
+(print (if (boolean-eval '(or t nil)) 'PASS 'FAIL)) ; Expected output: PASS
+;; Test case 6: Test 'xor' expression
+(print (if (boolean-eval '(xor (implies t nil) (implies nil t))) 'PASS 'FAIL)) ; Expected output: PASS
+;; Test case 7: Test 'implies' expression
+(print (if (boolean-eval '(implies t nil)) 'FAIL 'PASS)) ; Expected output: PASS
+;; Test case 8: Test 'iff' expression
+(print (if (boolean-eval '(iff t nil)) 'FAIL 'PASS)) ; Expected output: PASS
+;; Test case 9: Test invalid expression
+(print (if (ignore-errors (boolean-eval '(invalid t nil))) 'FAIL 'PASS)) ; Expected output: PASS
