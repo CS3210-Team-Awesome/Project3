@@ -158,7 +158,7 @@
 (defun boolean-evalTest ()
 (print "Test for boolean-eval")
 ;; Test case 1: Test null expression
-(print (if (boolean-eval '()) 'PASS 'FAIL)) ; Expected output: PASS
+(print (if (boolean-eval '()) 'FAIL 'PASS)) ; Expected output: PASS
 ;; Test case 2: Test boolean constant
 (print (if (boolean-eval t) 'PASS 'FAIL)) ; Expected output: PASS
 ;; Test case 3: Test negation expression
