@@ -65,6 +65,7 @@
 ;;Function 8- boolean eval
 (defun boolean-eval (exp)
   (cond
+    ((null exp) nil)
     ((equal exp t) t)
     ((equal exp nil) nil)
     ((equal (car exp) 'and)
