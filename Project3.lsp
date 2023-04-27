@@ -64,14 +64,26 @@
 
 ;;Function 8- boolean eval
 (defun boolean-eval (exp)
-    (cond
-        ((EQUAL exp t) t)
-        ((EQUAL exp nil) nil)
-        ((EQUAL (car exp) 'and) (and (boolean-eval(second exp)) (boolean-eval(third exp))))
-        ((EQUAL (car exp) 'or) (or (boolean-eval(second exp)) (boolean-eval(third exp))))
-        ((EQUAL (car exp) 'not)  (not (boolean-eval(second exp))))
-        ((EQUAL (car exp) 'iff) (boolean-iff(boolean-eval(second exp)) (boolean-eval(third exp))))
-        ((EQUAL (car exp) 'xor) (boolean-xor(boolean-eval(second exp)) (boolean-eval(third exp))))
-        ((EQUAL (car exp) 'implies) (implication(boolean-eval(second exp)) (boolean-eval(third exp))))
- )
-)
+  (cond
+    ((equal exp t) t)
+    ((equal exp nil) nil)
+    ((equal (car exp) 'and)
+    
+     (and (boolean-eval (second exp)) (boolean-eval (third exp))))
+    ((equal (car exp) 'or)
+    
+     (or (boolean-eval (second exp)) (boolean-eval (third exp))))
+    ((equal (car exp) 'not)
+    
+     (not (boolean-eval (second exp))))
+    ((equal (car exp) 'iff)
+
+     (if (EQUAL(boolean-eval (second exp)) (boolean-eval (third exp))) t nil))
+    ((equal (car exp) 'xor)
+
+     (if (not (boolean-eval (second exp))) (boolean-eval (third exp)) (not(boolean-eval (third exp)))))
+
+    ((equal (car exp) 'implies)
+     (or (not(boolean-eval (second exp))) (boolean-eval (third exp))))
+    )
+  )
