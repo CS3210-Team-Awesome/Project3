@@ -46,7 +46,7 @@
     )
 
 ;;Part 6
-(defun implication(a b);; initialize function
+(defun boolean-implies(a b);; initialize function
     (cond ((EQUAL a b) t) ;; test if inputs are equal and if so returns true
           ((EQUAL a nil) t) ;; tests if a is nil, if so it is always true
           ((and (EQUAL a t) (EQUAL b nil)) nil) ;; tests for the one false condition, a = t and b = nil, returns false 
@@ -83,7 +83,7 @@
 
      (if (not (boolean-eval (second exp))) (boolean-eval (third exp)) (not(boolean-eval (third exp)))))
 
-    ((equal (car exp) 'implies)
+    ((equal (car exp) 'boolean-implies)
      (or (not(boolean-eval (second exp))) (boolean-eval (third exp))))
     )
   )
