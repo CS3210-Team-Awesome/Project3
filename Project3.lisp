@@ -72,6 +72,6 @@
         ((EQUAL (car exp) 'not)  (not (boolean-eval(second exp))))
         ((EQUAL (car exp) 'iff) (boolean-iff(boolean-eval(second exp)) (boolean-eval(third exp))))
         ((EQUAL (car exp) 'xor) (boolean-xor(boolean-eval(second exp)) (boolean-eval(third exp))))
-        ((EQUAL (car exp) 'implies) (implication(boolean-eval(second exp)) (boolean-eval(third exp))))
+        ((EQUAL (car exp) 'implies) (boolean-implies(boolean-eval(second exp)) (boolean-eval(third exp))))
  )
 )
